@@ -165,3 +165,6 @@ jobs:
 
       - name: Push
         run: git push origin master
+
+      - name: Cleanup
+        run: git branch -d origin/npm-check-updates
