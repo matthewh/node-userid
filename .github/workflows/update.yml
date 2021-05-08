@@ -61,8 +61,13 @@ jobs:
       - name: Add expected file changes
         run: git add package.json package-lock.json
 
+      - name: Set Author
+        run: |
+          git config user.email actions@github.com
+          git config user.name GitHub Actions
+
       - name: 'Commit changes'
-        run: git commit -m 'Automatic dependency update' --author="GitHub Actions <actions@github.com>"
+        run: git commit -m 'Automatic dependency update'
 
       - name: Test for dangling changes (error!)
         run: git diff-index --quiet HEAD --
