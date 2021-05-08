@@ -1,6 +1,10 @@
 name: Main
 
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - 'npm-check-updates'
+  pull-request:
 
 jobs:
   install-and-run-from-git:
