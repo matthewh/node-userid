@@ -48,8 +48,7 @@ jobs:
         run: git diff --color=always
 
       - name: Clean touched but identical files
-        run: git update-index --refresh
-        continue-on-error: true
+        run: 'git update-index --refresh || :'
 
       - name: Test for changes (don't continue if there aren't any)
         id: changes
