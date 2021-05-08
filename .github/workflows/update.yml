@@ -3,14 +3,9 @@ name: Update Dependencies, Test, and Commit
 # Continuously update dependencies of this package and test with all versions of node on various OSes
 
 on:
-  # For self update development
-  push:
-    branches:
-      - dev/self-update-deps
-
-  # Every Saturday at 5:00am
-  #schedule:
-  #  - cron: 0 5 * * 6
+  schedule:
+    # Every Saturday at 5:00am
+    - cron: 0 5 * * 6
 
 jobs:
   update:
