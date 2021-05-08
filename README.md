@@ -69,7 +69,6 @@ Pull requests that would bring Windows into the fold would be welcome.
 
 ### Improvements to be made
 
-- Automatic dependency update, test, and publish
 - Publish pre-built versions of packages
 - Don't depend on coveralls for coverage reports (maybe with [Standalone Stats](https://github.com/cinderblock/github-action-standalone-stats))
 - Implement any `TODO`s found in the sources or tests
