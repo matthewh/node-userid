@@ -4,11 +4,13 @@ name: Test All Versions
 
 on:
   push:
+    branches-ignore:
+      - 'npm-check-updates'
   pull_request:
   repository_dispatch:
   schedule:
-    # Daily at 5:00am
-    - cron: 0 5 * * *
+    # Daily at 6:00am
+    - cron: 0 6 * * *
 
 jobs:
   test-matrix:
