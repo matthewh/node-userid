@@ -49,6 +49,7 @@ jobs:
 
       - name: Clean touched but identical files
         run: git update-index --refresh
+        continue-on-error: true
 
       - name: Test for changes (don't continue if there aren't any)
         id: changes
