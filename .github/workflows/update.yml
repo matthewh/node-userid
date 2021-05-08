@@ -104,17 +104,10 @@ jobs:
       - name: 'Debug: Node version'
         run: node --version
 
-        # Update all dependencies
-
-      - name: 'Update dependencies'
-        run: npx npm-check-updates -u
-        env:
-          FORCE_COLOR: 1
-
         # Install dependencies and Build
 
-      - name: Install dependencies and Build (using `npm install`)
-        run: npm install
+      - name: Install dependencies and Build (using `npm ci`)
+        run: npm ci
 
       - name: 'Info: Show differences'
         run: git diff --color=always
