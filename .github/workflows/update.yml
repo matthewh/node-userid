@@ -143,11 +143,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Enable color for Npm output
+        run: echo color = always >> .npmrc
+
       - name: Checkout latest code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Merge
         run: git merge --ff-only origin/npm-check-updates
+
+      - name: Set Author
+        run: |
+          git config user.email actions@github.com
+          git config user.name GitHub Actions
+
+      - name: Bump Version
+        run: npm version patch
+
       - name: Push
         run: git push origin master
