@@ -159,7 +159,7 @@ jobs:
         run: npm version patch
 
       - name: Push
-        run: git push origin master
+        run: git push --tags --atomic origin master
 
       - name: Cleanup
         run: git branch -d origin/npm-check-updates
