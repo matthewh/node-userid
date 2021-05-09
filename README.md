@@ -53,7 +53,7 @@ To get IntelliSense to work fully, add a line like this to your user `settings.j
 ```
 
 We use Npm, not Yarn.
-If you try to use `yarn`, it will error.
+Yarn should work, but we want to use Npm's `package-lock.json`.
 
 ### Windows
 
