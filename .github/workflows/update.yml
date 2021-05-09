@@ -80,7 +80,7 @@ jobs:
 
     needs: update
 
-    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    name: Test with Node ${{ matrix.node }} on ${{ matrix.os }}
 
     steps:
       - name: Enable color for Npm output
