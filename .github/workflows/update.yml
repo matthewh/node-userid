@@ -48,6 +48,7 @@ jobs:
       - name: Test for changes (don't continue if there aren't any)
         id: changes
         run: '! git diff-index --quiet HEAD --'
+        # TODO: bail out "successfully" here instead of as "error"
 
       - name: Switch to update branch
         run: git checkout -b npm-check-updates
