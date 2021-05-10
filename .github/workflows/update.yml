@@ -64,7 +64,7 @@ jobs:
       - name: 'Commit changes'
         run: git commit -m 'Automatic dependency update'
 
-      - name: Test for dangling changes (error!)
+      - name: Test for dangling changes (error if any remain!)
         run: git diff-index --quiet HEAD --
 
       - name: Push to GitHub
