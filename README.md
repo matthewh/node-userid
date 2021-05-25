@@ -1,6 +1,6 @@
 # userid
 
-Simple Node.js library with native  bindings for getting uid and gid information.
+Simple Node.js library with native bindings for getting uid and gid information.
 
 [![](https://github.com/cinderblock/node-userid/workflows/Main/badge.svg)](https://github.com/cinderblock/node-userid/actions)
 [![](https://github.com/cinderblock/node-userid/workflows/Test%20All%20Versions/badge.svg)](https://github.com/cinderblock/node-userid/actions)
