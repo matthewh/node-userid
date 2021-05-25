@@ -1,6 +1,6 @@
 # userid
 
-Simple nodejs library with native bindings for getting uid and gid information.
+Simple Node.js library with native  bindings for getting uid and gid information.
 
 [![](https://github.com/cinderblock/node-userid/workflows/Main/badge.svg)](https://github.com/cinderblock/node-userid/actions)
 [![](https://github.com/cinderblock/node-userid/workflows/Test%20All%20Versions/badge.svg)](https://github.com/cinderblock/node-userid/actions)
@@ -93,10 +93,10 @@ It also signals the change to using Github Actions to run all our full coverage 
 
 The license, when the package was created, had some mix of GLPv3 and Public Domain.
 
-Since the main source code has always been Public Domain, I'm going to keep it that way.
+Since the main source code has always been Public Domain, I believe it should stay that way.
 I've also explicitly extended it to the rest of the main (published) source code.
 
-Event though Jen's before last commit (ba665c45d958982ff5aa0d482741a2955a4de8c4) changed the license in one location to MIT,
+Event though Jen's [before last commit](https://github.com/jandre/node-userid/commit/ba665c45d958982ff5aa0d482741a2955a4de8c4) changed the license in one location to MIT,
 the tests, build files, and other scripts (especially those by other contributors) were added under the GPLv3.
 I'm therefore inclined to think it's better to not hold to that final license change.
 
