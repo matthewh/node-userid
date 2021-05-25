@@ -31,7 +31,9 @@ struct group {
 /**
  * The getgrgid() function shall search the group database for an entry with a matching gid.
  */
-struct group *getgrgid(gid_t gid);
+struct group *getgrgid(gid_t gid) {
+  return nullptr;
+}
 #endif
 
 using namespace Napi;

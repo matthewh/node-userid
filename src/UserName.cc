@@ -24,7 +24,9 @@ struct passwd {
  * The getpwuid() function returns a pointer to a structure containing the broken-out fields of the record in the
  * password database that matches the user ID uid.
  */
-struct passwd *getpwuid(uid_t uid);
+struct passwd *getpwuid(uid_t uid) {
+  return nullptr;
+}
 #endif
 
 using namespace Napi;

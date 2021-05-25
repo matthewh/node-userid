@@ -26,7 +26,9 @@ struct passwd {
  * the local password file /etc/passwd, NIS, and LDAP) that matches the
  * username name.
  */
-struct passwd *getpwnam(const char *name);
+struct passwd *getpwnam(const char *name) {
+  return nullptr;
+}
 #endif
 
 using namespace Napi;

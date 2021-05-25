@@ -57,7 +57,7 @@ struct passwd *getpwnam(const char *name);
  * *ngroups can be used to resize the buffer passed to a further call
  * getgrouplist().
  */
-int getgrouplist(const char *user, gid_t group, gid_t *groups, int *ngroups);
+int getgrouplist(const char *user, gid_t group, gid_t *groups, int *ngroups) { return -2; }
 #endif
 
 using namespace Napi;

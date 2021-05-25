@@ -34,7 +34,9 @@ struct group {
  * local group file /etc/group, NIS, and LDAP) that matches the group
  * name name.
  */
-struct group *getgrnam(const char *name);
+struct group *getgrnam(const char *name) {
+  return nullptr;
+}
 #endif
 
 using namespace Napi;
