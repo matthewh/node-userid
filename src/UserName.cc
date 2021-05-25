@@ -36,20 +36,17 @@ String userid::UserName(const CallbackInfo &info) {
   auto env = info.Env();
 
   if (info.Length() < 1) {
-    TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw TypeError::New(env, "Wrong number of arguments");
   }
 
   if (!info[0].IsNumber()) {
-    TypeError::New(env, "Argument must be a number").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw TypeError::New(env, "Argument must be a number");
   }
 
   auto user = getpwuid(info[0].As<Number>().Int32Value());
 
   if (!user) {
-    Error::New(env, "uid not found").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw Error::New(env, "uid not found");
   }
 
   return String::New(env, user->pw_name);

@@ -66,13 +66,11 @@ Array userid::Gids(const CallbackInfo &info) {
   auto env = info.Env();
 
   if (info.Length() < 1) {
-    TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
-    return Array::New(env, 0);
+    throw TypeError::New(env, "Wrong number of arguments");
   }
 
   if (!info[0].IsString()) {
-    TypeError::New(env, "Argument must be a string").ThrowAsJavaScriptException();
-    return Array::New(env, 0);
+    throw TypeError::New(env, "Argument must be a string");
   }
 
   auto username = std::string(info[0].As<String>());
@@ -82,8 +80,7 @@ Array userid::Gids(const CallbackInfo &info) {
 
   if (!pw) {
     // TODO: More verbose error message that includes errno
-    Error::New(env, "getpwnam").ThrowAsJavaScriptException();
-    return Array::New(env, 0);
+    throw Error::New(env, "getpwnam");
   }
 
 #ifdef __APPLE__
@@ -107,8 +104,7 @@ Array userid::Gids(const CallbackInfo &info) {
     groups = new gidType[ngroups];
 
     if (!groups) {
-      Error::New(env, "Malloc error generating list of groups").ThrowAsJavaScriptException();
-      return Array::New(env, 0);
+      throw Error::New(env, "Malloc error generating list of groups");
     }
 
     foundGroups = getgrouplist(username.c_str(), pw->pw_gid, groups, &ngroups);

@@ -12,6 +12,7 @@
     "cflags",
     "coverallsapp",
     "editorconfig",
+    "fexceptions",
     "fvisibility",
     "gcov",
     "getent",

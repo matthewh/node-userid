@@ -38,21 +38,18 @@ Object userid::Ids(const CallbackInfo &info) {
   auto env = info.Env();
 
   if (info.Length() < 1) {
-    TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
-    return Object::New(env);
+    throw TypeError::New(env, "Wrong number of arguments");
   }
 
   if (!info[0].IsString()) {
-    TypeError::New(env, "Argument must be a string").ThrowAsJavaScriptException();
-    return Object::New(env);
+    throw TypeError::New(env, "Argument must be a string");
   }
 
   auto name = std::string(info[0].As<String>());
   auto user = getpwnam(name.c_str());
 
   if (!user) {
-    Error::New(env, "username not found").ThrowAsJavaScriptException();
-    return Object::New(env);
+    throw Error::New(env, "username not found");
   }
 
   auto ret = Object::New(env);

@@ -46,13 +46,11 @@ Number userid::Gid(const CallbackInfo &info) {
   auto env = info.Env();
 
   if (info.Length() < 1) {
-    TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
-    return Number::New(env, 0);
+    throw TypeError::New(env, "Wrong number of arguments");
   }
 
   if (!info[0].IsString()) {
-    TypeError::New(env, "Argument must be a string").ThrowAsJavaScriptException();
-    return Number::New(env, 0);
+    throw TypeError::New(env, "Argument must be a string");
   }
 
   auto name = std::string(info[0].As<String>());
@@ -60,8 +58,7 @@ Number userid::Gid(const CallbackInfo &info) {
   auto group = getgrnam(name.c_str());
 
   if (!group) {
-    Error::New(env, "groupname not found").ThrowAsJavaScriptException();
-    return Number::New(env, 0);
+    throw Error::New(env, "groupname not found");
   }
 
   return Number::New(env, group->gr_gid);

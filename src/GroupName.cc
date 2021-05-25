@@ -43,13 +43,11 @@ String userid::GroupName(const CallbackInfo &info) {
   auto env = info.Env();
 
   if (info.Length() < 1) {
-    TypeError::New(env, "Wrong number of arguments").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw TypeError::New(env, "Wrong number of arguments");
   }
 
   if (!info[0].IsNumber()) {
-    TypeError::New(env, "Argument must be a number").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw TypeError::New(env, "Argument must be a number");
   }
 
   int gid = info[0].As<Number>().Int32Value();
@@ -57,8 +55,7 @@ String userid::GroupName(const CallbackInfo &info) {
   auto group = getgrgid(gid);
 
   if (!group) {
-    Error::New(env, "gid not found").ThrowAsJavaScriptException();
-    return String::New(env, "");
+    throw Error::New(env, "gid not found");
   }
 
   return String::New(env, group->gr_name);
