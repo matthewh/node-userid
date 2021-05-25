@@ -1,6 +1,7 @@
 name: Main
 
 on:
+  create:
   push:
     branches-ignore:
       - 'npm-check-updates'
