@@ -11,6 +11,7 @@
     "VCCL",
     "cflags",
     "coverallsapp",
+    "editorconfig",
     "fvisibility",
     "gcov",
     "getent",
