@@ -2,6 +2,15 @@
   "name": "userid",
   "version": "1.2.5",
   "description": "Lookup uid and gid information in node.js. Uses native POSIX bindings, not processes.",
+  "license": "Public Domain",
+  "author": "Jen Andre <jandre@gmail.com>",
+  "contributors": [
+    "Cameron Tacklind <cameron@tacklind.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cinderblock/node-userid.git"
+  },
   "main": "lib/userid.js",
   "types": "lib/userid.d.ts",
   "files": [
@@ -31,15 +40,6 @@
     "clean": "node-gyp clean",
     "build": "node-gyp rebuild"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cinderblock/node-userid.git"
-  },
-  "author": "Jen Andre <jandre@gmail.com>",
-  "contributors": [
-    "Cameron Tacklind <cameron@tacklind.com>"
-  ],
-  "license": "Public Domain",
   "gypfile": true,
   "dependencies": {
     "bindings": "^1.5.0",
