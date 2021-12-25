@@ -54,7 +54,7 @@ auto userid::GroupName(const CallbackInfo &info) -> String {
 
   auto group = getgrgid(gid);
 
-  if (!group) {
+  if (group == nullptr) {
     throw Error::New(env, "gid not found");
   }
 

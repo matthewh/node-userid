@@ -48,7 +48,7 @@ auto userid::Ids(const CallbackInfo &info) -> Object {
   auto name = std::string(info[0].As<String>());
   auto user = getpwnam(name.c_str());
 
-  if (!user) {
+  if (user == nullptr) {
     throw Error::New(env, "username not found");
   }
 

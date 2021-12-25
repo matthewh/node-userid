@@ -58,7 +58,7 @@ auto userid::Gid(const CallbackInfo &info) -> Number {
 
   auto group = getgrnam(name.c_str());
 
-  if (!group) {
+  if (group == nullptr) {
     throw Error::New(env, "groupname not found");
   }
 

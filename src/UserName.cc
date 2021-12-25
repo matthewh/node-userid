@@ -45,7 +45,7 @@ auto userid::UserName(const CallbackInfo &info) -> String {
 
   auto user = getpwuid(info[0].As<Number>().Int32Value());
 
-  if (!user) {
+  if (user == nullptr) {
     throw Error::New(env, "uid not found");
   }
 

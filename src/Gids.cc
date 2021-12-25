@@ -82,7 +82,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
   errno = 0;
   auto pw = getpwnam(username.c_str());
 
-  if (!pw) {
+  if (pw == nullptr) {
     // TODO: More verbose error message that includes errno
     throw Error::New(env, "getpwnam");
   }
@@ -107,7 +107,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
 
     groups = new gidType[ngroups];
 
-    if (!groups) {
+    if (groups == nullptr) {
       throw Error::New(env, "Malloc error generating list of groups");
     }
 
