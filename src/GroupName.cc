@@ -31,9 +31,7 @@ struct group {
 /**
  * The getgrgid() function shall search the group database for an entry with a matching gid.
  */
-struct group *getgrgid(gid_t gid) {
-  return nullptr;
-}
+auto getgrgid(gid_t gid) -> struct group *;
 #endif
 
 using Napi::CallbackInfo;
@@ -41,7 +39,7 @@ using Napi::Error;
 using Napi::String;
 using Napi::TypeError;
 
-String userid::GroupName(const CallbackInfo &info) {
+auto userid::GroupName(const CallbackInfo &info) -> String {
   auto env = info.Env();
 
   if (info.Length() < 1) {

@@ -24,9 +24,7 @@ struct passwd {
  * The getpwuid() function returns a pointer to a structure containing the broken-out fields of the record in the
  * password database that matches the user ID uid.
  */
-struct passwd *getpwuid(uid_t uid) {
-  return nullptr;
-}
+auto getpwuid(uid_t uid) -> struct passwd *;
 #endif
 
 using Napi::CallbackInfo;
@@ -34,7 +32,7 @@ using Napi::Error;
 using Napi::String;
 using Napi::TypeError;
 
-String userid::UserName(const CallbackInfo &info) {
+auto userid::UserName(const CallbackInfo &info) -> String {
   auto env = info.Env();
 
   if (info.Length() < 1) {

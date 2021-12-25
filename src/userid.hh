@@ -12,9 +12,9 @@ using Napi::Number;
 using Napi::Object;
 using Napi::String;
 
-String GroupName(const CallbackInfo &info);
-Array Gids(const CallbackInfo &info);
-Number Gid(const CallbackInfo &info);
-String UserName(const CallbackInfo &info);
-Object Ids(const CallbackInfo &info);
+auto GroupName(const CallbackInfo &info) -> String;
+auto Gids(const CallbackInfo &info) -> Array;
+auto Gid(const CallbackInfo &info) -> Number;
+auto UserName(const CallbackInfo &info) -> String;
+auto Ids(const CallbackInfo &info) -> Object;
 } // namespace userid

@@ -33,7 +33,7 @@ struct passwd {
  * the local password file /etc/passwd, NIS, and LDAP) that matches the
  * username name.
  */
-struct passwd *getpwnam(const char *name);
+auto getpwnam(const char *name) -> struct passwd *;
 
 /**
  * The getgrouplist() function scans the group database (see group(5))
@@ -57,7 +57,7 @@ struct passwd *getpwnam(const char *name);
  * *ngroups can be used to resize the buffer passed to a further call
  * getgrouplist().
  */
-int getgrouplist(const char *user, gid_t group, gid_t *groups, int *ngroups) { return -2; }
+auto getgrouplist(const char *user, gid_t group, gid_t *groups, int *ngroups) -> int;
 #endif
 
 using Napi::Array;
@@ -66,7 +66,7 @@ using Napi::Error;
 using Napi::Number;
 using Napi::TypeError;
 
-Array userid::Gids(const CallbackInfo &info) {
+auto userid::Gids(const CallbackInfo &info) -> Array {
   auto env = info.Env();
 
   if (info.Length() < 1) {

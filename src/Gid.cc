@@ -34,9 +34,7 @@ struct group {
  * local group file /etc/group, NIS, and LDAP) that matches the group
  * name name.
  */
-struct group *getgrnam(const char *name) {
-  return nullptr;
-}
+auto getgrnam(const char *name) -> struct group *;
 #endif
 
 using Napi::CallbackInfo;
@@ -45,7 +43,7 @@ using Napi::Number;
 using Napi::String;
 using Napi::TypeError;
 
-Number userid::Gid(const CallbackInfo &info) {
+auto userid::Gid(const CallbackInfo &info) -> Number {
   auto env = info.Env();
 
   if (info.Length() < 1) {

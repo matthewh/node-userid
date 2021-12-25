@@ -7,7 +7,7 @@ using Napi::Env;
 using Napi::Function;
 using Napi::Object;
 
-Object Init(Env env, Object exports) {
+auto Init(Env env, Object exports) -> Object {
   exports["ids"] = Function::New(env, &userid::Ids);
   exports["gid"] = Function::New(env, &userid::Gid);
   exports["gids"] = Function::New(env, &userid::Gids);

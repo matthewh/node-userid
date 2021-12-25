@@ -26,9 +26,7 @@ struct passwd {
  * the local password file /etc/passwd, NIS, and LDAP) that matches the
  * username name.
  */
-struct passwd *getpwnam(const char *name) {
-  return nullptr;
-}
+auto getpwnam(const char *name) -> struct passwd *;
 #endif
 
 using Napi::CallbackInfo;
@@ -36,7 +34,7 @@ using Napi::Error;
 using Napi::Object;
 using Napi::TypeError;
 
-Object userid::Ids(const CallbackInfo &info) {
+auto userid::Ids(const CallbackInfo &info) -> Object {
   auto env = info.Env();
 
   if (info.Length() < 1) {
