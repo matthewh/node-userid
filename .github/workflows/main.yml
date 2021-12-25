@@ -90,7 +90,7 @@ jobs:
           LONG_GROUPNAME_TEST: GroupnameWithMoreThan15Chars
 
   checks:
-    name: Check - Formatting & Spelling
+    name: Check - Formatting, Spelling, & Linting
 
     runs-on: ubuntu-latest
 
