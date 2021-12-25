@@ -83,7 +83,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
   const auto *const pw = getpwnam(username.c_str());
 
   if (pw == nullptr) {
-    // TODO: More verbose error message that includes errno
+    // TODO(Cameron): More verbose error message that includes errno
     throw Error::New(env, "getpwnam");
   }
 
@@ -102,7 +102,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
     // It is safe to delete nullptr on first run
     delete[] groups;
 
-    // Make our list of groups bigger by 4 at a time
+    // Make our list of groups bigger by 2x at a time
     ngroups *= 2;
 
     groups = new gidType[ngroups];
@@ -120,7 +120,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
   auto ret = Array::New(env, foundGroups);
 
   for (int i = 0; i < ngroups; i++) {
-    // TODO: What happens when `napi_value`s are assigned to an array? Do their allocations need to stay around?
+    // TODO(Cameron): Is this safe?
     ret[uint32_t(i)] = Number::New(env, groups[i]);
   }
 
