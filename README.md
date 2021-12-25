@@ -63,7 +63,8 @@ The initial problem is that we've marked this package as not compatible with Win
 Simply remove that line from the `package.json` before running `npm install`.
 Please do not commit this change.
 
-The other problem is that we cannot actually compile the software on a Windows machine because the bindings to the operating system calls are missing.
+The other problem is that we cannot actually link the binary on a Windows machine because the bindings to the operating system calls are missing.
+However, mock declarations for development on Windows machines are provided and will allow the `.cc` files to compile.
 
 Pull requests that would bring Windows into the fold would be welcome.
 
