@@ -8,7 +8,7 @@
 #else
 // Mocks for Windows
 
-typedef uint32_t gid_t;
+using gid_t = uint32_t;
 struct group {
   /**
    * group name

@@ -8,8 +8,8 @@
 #else
 // Mocks for Windows
 
-typedef uint32_t uid_t;
-typedef uint32_t gid_t;
+using uid_t = uint32_t;
+using gid_t = uint32_t;
 struct passwd {
   char *pw_name;   /* username */
   char *pw_passwd; /* user password */

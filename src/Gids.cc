@@ -15,8 +15,8 @@
 #else
 // Mocks for Windows
 
-typedef uint32_t uid_t;
-typedef uint32_t gid_t;
+using uid_t = uint32_t;
+using gid_t = uint32_t;
 struct passwd {
   char *pw_name;   /* username */
   char *pw_passwd; /* user password */
@@ -86,7 +86,7 @@ Array userid::Gids(const CallbackInfo &info) {
 #ifdef __APPLE__
   typedef int gidType;
 #else  // ifdef __APPLE__
-  typedef gid_t gidType;
+  using gidType = gid_t;
 #endif // ifdef __APPLE__
 
   gidType *groups = nullptr;
