@@ -67,7 +67,7 @@ using Napi::Number;
 using Napi::TypeError;
 
 auto userid::Gids(const CallbackInfo &info) -> Array {
-  auto env = info.Env();
+  const auto env = info.Env();
 
   if (info.Length() < 1) {
     throw TypeError::New(env, "Wrong number of arguments");
@@ -77,10 +77,10 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
     throw TypeError::New(env, "Argument must be a string");
   }
 
-  auto username = std::string(info[0].As<String>());
+  const auto username = std::string(info[0].As<String>());
 
   errno = 0;
-  auto pw = getpwnam(username.c_str());
+  const auto *const pw = getpwnam(username.c_str());
 
   if (pw == nullptr) {
     // TODO: More verbose error message that includes errno

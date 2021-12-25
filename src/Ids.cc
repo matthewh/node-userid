@@ -35,7 +35,7 @@ using Napi::Object;
 using Napi::TypeError;
 
 auto userid::Ids(const CallbackInfo &info) -> Object {
-  auto env = info.Env();
+  const auto env = info.Env();
 
   if (info.Length() < 1) {
     throw TypeError::New(env, "Wrong number of arguments");
@@ -45,8 +45,8 @@ auto userid::Ids(const CallbackInfo &info) -> Object {
     throw TypeError::New(env, "Argument must be a string");
   }
 
-  auto name = std::string(info[0].As<String>());
-  auto user = getpwnam(name.c_str());
+  const auto name = std::string(info[0].As<String>());
+  const auto *const user = getpwnam(name.c_str());
 
   if (user == nullptr) {
     throw Error::New(env, "username not found");

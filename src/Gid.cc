@@ -44,7 +44,7 @@ using Napi::String;
 using Napi::TypeError;
 
 auto userid::Gid(const CallbackInfo &info) -> Number {
-  auto env = info.Env();
+  const auto env = info.Env();
 
   if (info.Length() < 1) {
     throw TypeError::New(env, "Wrong number of arguments");
@@ -54,9 +54,9 @@ auto userid::Gid(const CallbackInfo &info) -> Number {
     throw TypeError::New(env, "Argument must be a string");
   }
 
-  auto name = std::string(info[0].As<String>());
+  const auto name = std::string(info[0].As<String>());
 
-  auto group = getgrnam(name.c_str());
+  const auto *const group = getgrnam(name.c_str());
 
   if (group == nullptr) {
     throw Error::New(env, "groupname not found");

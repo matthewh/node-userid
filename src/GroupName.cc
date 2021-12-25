@@ -40,7 +40,7 @@ using Napi::String;
 using Napi::TypeError;
 
 auto userid::GroupName(const CallbackInfo &info) -> String {
-  auto env = info.Env();
+  const auto env = info.Env();
 
   if (info.Length() < 1) {
     throw TypeError::New(env, "Wrong number of arguments");
@@ -50,9 +50,9 @@ auto userid::GroupName(const CallbackInfo &info) -> String {
     throw TypeError::New(env, "Argument must be a number");
   }
 
-  int gid = info[0].As<Number>().Int32Value();
+  const int gid = info[0].As<Number>().Int32Value();
 
-  auto group = getgrgid(gid);
+  const auto *const group = getgrgid(gid);
 
   if (group == nullptr) {
     throw Error::New(env, "gid not found");

@@ -33,7 +33,7 @@ using Napi::String;
 using Napi::TypeError;
 
 auto userid::UserName(const CallbackInfo &info) -> String {
-  auto env = info.Env();
+  const auto env = info.Env();
 
   if (info.Length() < 1) {
     throw TypeError::New(env, "Wrong number of arguments");
@@ -43,7 +43,8 @@ auto userid::UserName(const CallbackInfo &info) -> String {
     throw TypeError::New(env, "Argument must be a number");
   }
 
-  auto user = getpwuid(info[0].As<Number>().Int32Value());
+  const auto n = info[0].As<Number>().Int32Value();
+  const auto *const user = getpwuid(n);
 
   if (user == nullptr) {
     throw Error::New(env, "uid not found");
