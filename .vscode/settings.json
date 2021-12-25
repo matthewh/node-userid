@@ -1,19 +1,17 @@
 {
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
-  }
+  },
+  "clang-tidy.compilerArgs": [
+    "-I%AppData%/Local/node-gyp/Cache/16.10.0/include/node",
+    "-I~/.cache/node-gyp/16.10.0/include/node",
+    "-Inode_modules/node-addon-api"
+  ],
+  "clang-tidy.fixOnSave": true,
+  "clang-tidy.buildPath": "build/Release"
 }

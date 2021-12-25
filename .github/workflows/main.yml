@@ -101,8 +101,8 @@ jobs:
       - name: Checkout latest code
         uses: actions/checkout@v1
 
-      - name: Install Node dependencies without building locally
-        run: npm ci --ignore-scripts
+      - name: Install Node dependencies and build
+        run: npm ci
 
       - name: Run Formatting Checks
         # We allow any line endings in code but always commit and expect only LF
@@ -110,6 +110,9 @@ jobs:
 
       - name: Run Spelling Checks
         run: npm run spelling
+
+      - name: Run Lint Checks
+        run: npm run lint -- --use-color
 
   coverage:
     needs: [test-native-api, install-and-run-from-git]

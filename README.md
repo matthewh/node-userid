@@ -73,7 +73,6 @@ Pull requests that would bring Windows into the fold would be welcome.
 - Don't depend on coveralls for coverage reports (maybe with [Standalone Stats](https://github.com/cinderblock/github-action-standalone-stats))
 - Implement any `TODO`s found in the sources or tests
 - Automatic testing of latest versions of Node/OSes
-- C++ Linting with `clang-tidy` (or equivalent)
 - Windows compatibility?
   - WSL
   - Windows equivalent native methods
