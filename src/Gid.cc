@@ -39,8 +39,11 @@ struct group *getgrnam(const char *name) {
 }
 #endif
 
-using namespace Napi;
-using namespace userid;
+using Napi::CallbackInfo;
+using Napi::Error;
+using Napi::Number;
+using Napi::String;
+using Napi::TypeError;
 
 Number userid::Gid(const CallbackInfo &info) {
   auto env = info.Env();

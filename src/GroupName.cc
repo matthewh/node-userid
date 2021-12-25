@@ -36,8 +36,10 @@ struct group *getgrgid(gid_t gid) {
 }
 #endif
 
-using namespace Napi;
-using namespace userid;
+using Napi::CallbackInfo;
+using Napi::Error;
+using Napi::String;
+using Napi::TypeError;
 
 String userid::GroupName(const CallbackInfo &info) {
   auto env = info.Env();

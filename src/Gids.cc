@@ -60,7 +60,11 @@ struct passwd *getpwnam(const char *name);
 int getgrouplist(const char *user, gid_t group, gid_t *groups, int *ngroups) { return -2; }
 #endif
 
-using namespace Napi;
+using Napi::Array;
+using Napi::CallbackInfo;
+using Napi::Error;
+using Napi::Number;
+using Napi::TypeError;
 
 Array userid::Gids(const CallbackInfo &info) {
   auto env = info.Env();

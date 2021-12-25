@@ -3,15 +3,16 @@
 
 #include "userid.hh"
 
-using namespace Napi;
-using namespace userid;
+using Napi::Env;
+using Napi::Function;
+using Napi::Object;
 
 Object Init(Env env, Object exports) {
-  exports["ids"] = Function::New(env, &Ids);
-  exports["gid"] = Function::New(env, &Gid);
-  exports["gids"] = Function::New(env, &Gids);
-  exports["username"] = Function::New(env, &UserName);
-  exports["groupname"] = Function::New(env, &GroupName);
+  exports["ids"] = Function::New(env, &userid::Ids);
+  exports["gid"] = Function::New(env, &userid::Gid);
+  exports["gids"] = Function::New(env, &userid::Gids);
+  exports["username"] = Function::New(env, &userid::UserName);
+  exports["groupname"] = Function::New(env, &userid::GroupName);
 
   // Original native module used the "uid" name but the JavaScript renamed it to "ids"
   // This gets replaced in the JavaScript API by a different function

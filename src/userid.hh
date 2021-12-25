@@ -6,7 +6,11 @@
 #include <napi.h>
 
 namespace userid {
-using namespace Napi;
+using Napi::Array;
+using Napi::CallbackInfo;
+using Napi::Number;
+using Napi::Object;
+using Napi::String;
 
 String GroupName(const CallbackInfo &info);
 Array Gids(const CallbackInfo &info);

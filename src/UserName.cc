@@ -29,8 +29,10 @@ struct passwd *getpwuid(uid_t uid) {
 }
 #endif
 
-using namespace Napi;
-using namespace userid;
+using Napi::CallbackInfo;
+using Napi::Error;
+using Napi::String;
+using Napi::TypeError;
 
 String userid::UserName(const CallbackInfo &info) {
   auto env = info.Env();
