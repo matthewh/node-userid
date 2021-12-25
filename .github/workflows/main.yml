@@ -98,6 +98,9 @@ jobs:
       - name: Enable color for Npm output
         run: echo color = always >> .npmrc
 
+      - name: Install clang-tidy
+        run: sudo apt-get install clang-tidy
+
       - name: Checkout latest code
         uses: actions/checkout@v1
 
