@@ -1,6 +1,5 @@
 Checks: '*,-llvm-header-guard,-llvmlibc-*,-altera-*,-fuchsia-*,fuchsia-multiple-inheritance,fuchsia-statically-constructed-objects,fuchsia-virtual-inheritance'
 WarningsAsErrors: true
-InheritParentConfig: true
 FormatStyle: LLVM
 CheckOptions:
   - key: google-readability-namespace-comments.ShortNamespaceLines
