@@ -21,4 +21,7 @@ auto Init(Env env, Object exports) -> Object {
   return exports;
 }
 
+// NOLINTNEXTLINE(modernize-use-trailing-return-type,bugprone-easily-swappable-parameters,cppcoreguidelines-avoid-non-const-global-variables)
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, Init);
+
+// cSpell:ignore NOLINTNEXTLINE
