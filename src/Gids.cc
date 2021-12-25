@@ -121,7 +121,7 @@ auto userid::Gids(const CallbackInfo &info) -> Array {
 
   for (int i = 0; i < ngroups; i++) {
     // TODO(Cameron): Is this safe?
-    ret[uint32_t(i)] = Number::New(env, groups[i]);
+    ret[i] = Number::New(env, groups[i]);
   }
 
   delete[] groups;
