@@ -5,7 +5,9 @@ const gyp = 'node-gyp';
 
 // TODO: Find a better way to find <node_api.h>
 const cachePath =
-  platform() === 'win32' ? `${process.env['LocalAppData'.toUpperCase()]}/${gyp}/Cache` : `~/.cache/${gyp}`;
+  platform() === 'win32'
+    ? `${process.env['LocalAppData'.toUpperCase()]}/${gyp}/Cache`
+    : `${process.env.HOME}/.cache/${gyp}`;
 
 const includes = [
   'node_modules/node-addon-api', // napi.h
