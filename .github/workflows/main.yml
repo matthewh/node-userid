@@ -155,17 +155,6 @@ jobs:
       - name: 'Debug: Coverage diff'
         run: 'diff -U 0 /tmp/build.list /tmp/coverage.list || :'
 
-      - name: Gcov # TODO: What exactly is this step doing?
-        working-directory: build
-        # TODO: Why do these args not seem to matter...
-        run: gcov -o Release/obj.target/userid/src/userid.o ../src/userid.cc
-
-      - name: 'Debug: List post Coverage files'
-        run: find * \( -path node_modules -o -path .git \) -print -prune -o -type f -print | tee /tmp/gcov.list
-
-      - name: 'Debug: Gcov diff'
-        run: 'diff -U 0 /tmp/coverage.list /tmp/gcov.list || :'
-
       - name: Lcov Capture Gcov Data
         run: lcov --capture --directory . --output-file coverage/cc.info
 
