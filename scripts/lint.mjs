@@ -16,4 +16,9 @@ const args = [...includes.map(i => `--extra-arg=-I${i}`), ...process.argv.slice(
 
 console.log('> clang-tidy', args);
 
-spawn('clang-tidy', args, { stdio: 'inherit' });
+spawn('clang-tidy', args, { stdio: 'inherit' })
+  .on('exit', process.exit)
+  .on('error', e => {
+    console.error(e);
+    process.exit(1);
+  });
