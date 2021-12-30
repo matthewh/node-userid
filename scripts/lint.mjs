@@ -23,6 +23,12 @@ exec.on('exit', code => {
 });
 
 exec.on('error', e => {
-  console.error(e);
   process.exitCode = 1;
+
+  if (e.code === 'ENOENT') {
+    console.error('Error: clang-tidy not found on PATH. Please install LLVM.');
+    return;
+  }
+
+  console.error(e);
 });
