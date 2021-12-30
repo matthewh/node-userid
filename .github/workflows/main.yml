@@ -167,6 +167,12 @@ jobs:
       - name: 'Debug: Print coverage report'
         run: lcov --list coverage/lcov.info
 
+      - name: 'Debug: List post lcov files'
+        run: find * \( -path node_modules -o -path .git \) -print -prune -o -type f -print | tee /tmp/lcov.list
+
+      - name: 'Debug: lcov diff'
+        run: 'diff -U 0 /tmp/coverage.list /tmp/lcov.list || :'
+
       - name: Coveralls GitHub Action
         uses: coverallsapp/github-action@v1.0.1
         with:
