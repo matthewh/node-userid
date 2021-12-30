@@ -35,7 +35,7 @@
     "test": "mocha",
     "prettier": "prettier \"**\" --check",
     "spelling": "cspell \"**\"",
-    "lint": "node scripts/lint.mjs",
+    "lint": "node scripts/lint.mjs src/*.cc src/*.hh",
     "coverage": "nyc --reporter=lcov --reporter=text mocha",
     "install": "npm run build",
     "clean": "node-gyp clean",

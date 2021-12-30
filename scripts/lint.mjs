@@ -1,8 +1,6 @@
 import { spawn } from 'child_process';
 import { platform } from 'os';
 
-const files = ['src/*.cc', 'src/*.hh'];
-
 const gyp = 'node-gyp';
 
 // TODO: Find a better way to find <node_api.h>
@@ -14,7 +12,7 @@ const includes = [
   `${cachePath}/${process.version.slice(1)}/include/node`, // node_api.h
 ];
 
-const args = [...files, ...includes.map(i => `--extra-arg=-I${i}`), ...process.argv.slice(2)];
+const args = [...includes.map(i => `--extra-arg=-I${i}`), ...process.argv.slice(2)];
 
 console.log('> clang-tidy', args);
 
