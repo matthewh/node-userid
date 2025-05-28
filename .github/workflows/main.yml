@@ -26,6 +26,9 @@ jobs:
       - name: 'Debug: List post build files'
         run: find * \( -path node_modules -o -path .git \) -print -prune -o -type f -print | tee /tmp/build.list
 
+      - name: 'Get Package Name'
+        run: echo "PACKAGE_NAME=$(jq -r .name package.json)" >> "$GITHUB_ENV"
+
       # Prepare Test Environment
 
       - name: Create Dummy Package.json
@@ -37,7 +40,7 @@ jobs:
 
       - name: 'Debug: List Dependency Folder Contents'
         working-directory: test
-        run: find node_modules/userid -type f -print
+        run: find "node_modules/${PACKAGE_NAME}" -type f -print
 
       # Ensure the code works
 
@@ -50,7 +53,7 @@ jobs:
       - name: Run Tests with Prepared Git Dependency
         run: npm test -- --color
         env:
-          MOCHA_IMPORT_OVERRIDE: userid
+          MOCHA_IMPORT_OVERRIDE: ${{env.PACKAGE_NAME}}
           LONG_USERNAME_TEST: UsernameWithMoreThan15Chars
           LONG_GROUPNAME_TEST: GroupnameWithMoreThan15Chars
 
