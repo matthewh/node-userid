@@ -1,15 +1,16 @@
 {
-  "name": "userid",
-  "version": "1.2.41",
+  "name": "@hershbergien/userid",
+  "version": "1.3.0",
   "description": "Lookup uid and gid information in node.js. Uses native POSIX bindings, not processes.",
   "license": "Public Domain",
   "author": "Jen Andre <jandre@gmail.com>",
   "contributors": [
-    "Cameron Tacklind <cameron@tacklind.com>"
+    "Cameron Tacklind <cameron@tacklind.com>",
+    "Matthew Hershberger <matthewh@multipart.net>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cinderblock/node-userid.git"
+    "url": "https://github.com/matthewh/node-userid.git"
   },
   "main": "lib/userid.js",
   "types": "lib/userid.d.ts",
@@ -23,13 +24,14 @@
     "src/Gids.cc",
     "src/UserName.cc",
     "src/GroupName.cc",
-    "binding.gyp"
+    "binding.gyp",
+    "prebuilds/**/*.node"
   ],
   "os": [
     "!win32"
   ],
   "engines": {
-    "node": ">=8.4.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "test": "mocha",
@@ -37,21 +39,22 @@
     "spelling": "cspell \"**\"",
     "lint": "node scripts/lint.mjs src/*.cc src/*.hh",
     "coverage": "nyc --reporter=lcov --reporter=text mocha",
-    "install": "npm run build",
+    "install": "node-gyp-build",
     "clean": "node-gyp clean",
-    "build": "node-gyp rebuild"
+    "build": "prebuildify --strip --tag-armv --tag-libc"
   },
   "gypfile": true,
   "dependencies": {
     "bindings": "^1.5.0",
-    "node-addon-api": "^4.3.0"
+    "node-addon-api": "^4.3.0",
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.21",
     "cspell": "^5.19.2",
     "mocha": "^9.2.2",
-    "node-gyp": "^9.0.0",
+    "node-gyp": "^11.2.0",
     "nyc": "^15.1.0",
     "prettier": "^2.6.0",
     "should": "^13.2.3",

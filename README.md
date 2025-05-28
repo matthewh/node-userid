@@ -2,16 +2,14 @@
 
 Simple Node.js library with native bindings for getting uid and gid information.
 
-[![](https://github.com/cinderblock/node-userid/workflows/Main/badge.svg)](https://github.com/cinderblock/node-userid/actions)
-[![](https://github.com/cinderblock/node-userid/workflows/Test%20All%20Versions/badge.svg)](https://github.com/cinderblock/node-userid/actions)
-[![Coverage Status](https://coveralls.io/repos/github/cinderblock/node-userid/badge.svg?branch=master)](https://coveralls.io/github/cinderblock/node-userid?branch=master)
+[![](https://github.com/matthewh/node-userid/workflows/Main/badge.svg)](https://github.com/cinderblock/node-userid/actions)
+[![](https://github.com/matthewh/node-userid/workflows/Test%20All%20Versions/badge.svg)](https://github.com/cinderblock/node-userid/actions)
+[![Coverage Status](https://coveralls.io/repos/github/matthewh/node-userid/badge.svg?branch=master)](https://coveralls.io/github/cinderblock/node-userid?branch=master)
 
 ## Installation
 
 ```bash
-$ npm install userid
-# Or, alternatively, directly from github:
-$ npm install cinderblock/node-userid
+$ npm install @hershbergien/userid
 ```
 
 This relies on GNU `getgrname` and `getgrid`.
@@ -80,6 +78,8 @@ Pull requests that would bring Windows into the fold would be welcome.
 
 ## History
 
+Version 1.3.0 adds prebuilt binaries for compatible architectures.
+
 This package was originally created by [Jen Andre](https://github.com/jandre/node-userid) <jandre@gmail.com>.
 
 In 2019, it was, unfortunately, missing updates that are required to run on the latest versions of Node.js.
@@ -91,7 +91,7 @@ It also signals the change to using Github Actions to run all our full coverage 
 
 ## License
 
-The license, when the package was created, had some mix of GLPv3 and Public Domain.
+The license, when the package was created, had some mix of GPLv3 and Public Domain.
 
 Since the main source code has always been Public Domain, I believe it should stay that way.
 I've also explicitly extended it to the rest of the main (published) source code.
